@@ -1,0 +1,16 @@
+<a {{ action 'invalidateSession' }}>Logout</a>
+
+<h1>Likes!</h1>
+
+Total Number of Liked Pages: {{content.length}}
+
+
+<div>
+{{!--   {{user-likes pages=pages}}
+ --}}
+ </div>
+
+<h2>TEsting Container</h2>
+{{view 'container' id="likes-section" elementId="container-view"}}
+
+{{outlet}}

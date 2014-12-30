@@ -12,6 +12,10 @@
     "ember-load-initializers": "stefanpenner/ember-load-initializers#0.0.2",
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
-    "qunit": "~1.15.0"
+    "qunit": "~1.15.0",
+    "ember-simple-auth": "0.7.2"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.1"
   }
 }

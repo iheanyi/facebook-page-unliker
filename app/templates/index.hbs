@@ -1,0 +1,12 @@
+
+<div class="container">
+  <h1>Index Template</h1>
+
+  {{#if session.isAuthenticated}}
+    <a {{ action 'invalidateSession' }}>Logout</a>
+  {{else}}
+    <a href="#" {{action 'signIn'}}>Sign In With Facebook</a>
+  {{/if}}
+
+  <a {{action 'testAction'}}>Test Button</a>
+</div>

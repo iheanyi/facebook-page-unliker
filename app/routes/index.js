@@ -13,10 +13,15 @@ export default Ember.Route.extend({
     } else if(this.get('session').get('isAuthenticated') && !this.get('session').get('accessToken')) {
 
       // If user is "authenticated" through SimpleAuth but doesn't have a valid access token, we need to give the user a means of getting said access token, perhaps refreshing it in some way shape or form.
+
       console.log("Get access token now.");
       var session = this.get('session');
       var data = session.content;
-      session.restore(data).then(function() {
+      session.authenticate('simple-auth-authenticator:torii', 'facebook-connect').then(function() {
+        console.log("Reauthenticated user!");
+        route.transitionTo('likes');
+      });
+      session.restore(session).then(function() {
         console.log(session);
       });
     }

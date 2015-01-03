@@ -21,12 +21,22 @@ export default Ember.Controller.extend(LoginControllerMixin, {
     },
 
     testAction: function() {
-      var session = this.get
+      var route = this;
+
       FB.getLoginStatus(function(response) {
         console.log(response);
 
         if(response && response.status == "connected") {
-
+          var data = {
+            authenticator: 'simeple-auth-authenticator:torii',
+            provider: 'facebook-connect',
+          }
+          route.get('session').restore(response.data).then(function() {
+            console.log("Restored authentication?");
+            console.log(route.get('session'));
+            console.log(route.get('session').get('accessToken'));
+          });
+          console.log(route.get('session'));
         }
       });
 
@@ -36,9 +46,10 @@ export default Ember.Controller.extend(LoginControllerMixin, {
         function(response) {
           if(response && !response.error) {
             console.log(response);
+
           }
         }
-      )
+      );
     }
   }
 });

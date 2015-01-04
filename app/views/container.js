@@ -2,7 +2,7 @@ import Ember from 'ember';
 import UserLikesComponent from 'page-unliker/components/user-likes';
 
 export default Ember.ContainerView.extend({
-  classNames: ['container'],
+  classNames: ['container-view'],
   init: function() {
     this._super();
 

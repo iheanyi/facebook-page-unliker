@@ -17,10 +17,10 @@ export default Ember.Route.extend({
       console.log("Get access token now.");
       var session = this.get('session');
       var data = session.content;
-      session.authenticate('simple-auth-authenticator:torii', 'facebook-connect').then(function() {
+      /*session.authenticate('simple-auth-authenticator:torii', 'facebook-connect').then(function() {
         console.log("Reauthenticated user!");
         route.transitionTo('likes');
-      });
+      });*/
       session.restore(session).then(function() {
         console.log(session);
       });

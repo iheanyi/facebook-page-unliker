@@ -1,17 +1,34 @@
-  <ul id="user-likes" class="like-class">
-    {{#each item in pages}}
-      <li>
-        {{item.name}} - {{item.talking_about_count}} <br>
-        Liked On: {{formatted-date item.created_time 'LL'}}<br>
-        Talking About: {{item.talking_about_count}} <br>
-        Link: {{item.link}} <br>
-        Button: <div class="fb-like" {{bind-attr data-href=item.link}} data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div> <br>
-        iframeUrl: {{item.buttonURL}} <br>
+<div class="row">
+  <div class="col-sm-8">
+    <ul id="user-likes" class="like-class">
+      {{#each item in pages}}
+        <li class="like-item">
 
-  {{!--       Alternate Button: <iframe {{bind-attr src=item.buttonURL}}  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 47px; height:20px;" allowTransparency="true"></iframe> --}}
+          <div class="row">
+            <div class="page-section col-sm-12">
+              <span class="page-name"><a target="_blank" {{bind-attr href=item.link}}>{{item.name}}</a></span>
+              <span class="page-date">{{formatted-date item.created_time 'LL'}}</span>
+            </div>
+          </div>
 
-      </li>
-    {{else}}
-    No items loaded yet!
-    {{/each}}
-  </ul>
+
+
+          <div class="talking-section">
+            <span class="bolded">{{item.talking_about_count}}</span> people talking about it.
+          </div>
+
+          <div class="like-button">
+            Button: <iframe {{bind-attr src=item.buttonURL}}  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 47px; height:20px;" allowTransparency="true"></iframe>
+
+           {{!--  <div class="fb-like" {{bind-attr data-href=item.link}} data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div> <br> --}}
+          </div>
+
+
+        </li>
+      {{else}}
+        <span class="bolded">No items loaded yet!</span>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+

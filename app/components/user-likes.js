@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   didInsertElement : function(){
       this._super();
       console.log("Element inserted");
-      Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+      //Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
     },
     afterRenderEvent : function(){
       // implement this hook in your own subclasses and run your jQuery logic there

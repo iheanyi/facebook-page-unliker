@@ -16,7 +16,7 @@ Ember.View.reopen({
 export default Ember.View.extend({
   templateName: "likes",
   id: 'likes-section',
-  classNames: ['container'],
+  classNames: ['contaienr-view'],
   childViews: ['bView', 'aView'],
   aView: Ember.View.create({
     templateName: 'components/user-likes',
@@ -33,7 +33,12 @@ export default Ember.View.extend({
   },
   didScroll: function() {
     var controller = this.get('controller');
+    console.log(controller);
+    console.log(controller.get('sliceValue'));
+    var contentLength = controller.get('content').length;
+    var sliceValue = controller.get('sliceValue');
 
+    var itemsRemaining = contentLength - sliceValue;
     if (this.isAtBottom()) {
       // Get controller and send a command.
       console.log(UserLikesComponent);
@@ -50,7 +55,12 @@ export default Ember.View.extend({
 
       console.log("At the bottom of the page.");
       controller.send('fetchMore', defer);
+    } else if(this.isAtBottom() && itemsRemaining < 0) {
+      console.log("Remove scroll listener");
+      Ember.$(window).off('scroll', Ember.$.proxy(this.didScroll, this));
     }
+
+
   },
   isAtBottom: function() {
     var distanceToTop = (Ember.$(document).height() - Ember.$(window).height());

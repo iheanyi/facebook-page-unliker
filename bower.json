@@ -13,7 +13,9 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-    "ember-simple-auth": "0.7.2"
+    "ember-simple-auth": "0.7.2",
+    "bootstrap-social": "~4.8.0",
+    "font-awesome": "~4.2.0"
   },
   "devDependencies": {
     "bootstrap": "~3.3.1"

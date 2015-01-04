@@ -1,12 +1,44 @@
-
 <div class="container">
-  <h1>Index Template</h1>
+  <div class="row">
+    <div class="col-sm-8 col-md-offset-2">
 
-  {{#if session.isAuthenticated}}
-    <a {{ action 'invalidateSession' }}>Logout</a>
-  {{else}}
-    <a href="#" {{action 'signIn'}}>Sign In With Facebook</a>
-  {{/if}}
+      <div class="row header-section">
+        <div class="col-sm-8">
+          <h1>Facebook Page Cleaner</h1>
 
-  <a {{action 'testAction'}}>Test Button</a>
+          <p>A simple project created by <a href="http://twitter.com/kwuchu">Iheanyi Ekechukwu</a>.</p>
+        </div>
+
+        <div class="col-sm-4">
+          {{#if session.isAuthenticated}}
+            <a href="#" class="btn btn-custom btn-social btn-md btn-facebook" {{action 'invalidateSession'}}>
+              <i class="fa fa-facebook"></i> Logout
+            </a>
+          {{else}}
+            <a href="#" class="btn btn-custom btn-social btn-md btn-facebook" {{action 'signIn'}}>
+              <i class="fa fa-facebook"></i> Sign In With Facebook
+            </a>
+          {{/if}}
+        </div>
+      </div>
+
+      {{#unless session.isAuthenticated}}
+      <div class="row">
+        <div class="col-sm-12">
+          <p>Remember those embarassing pages you liked on Facebook as back when it was first starting? When it was known as "Becoming a Fan" of a page? Some of us that were bored teenagers (such as myself), when in a liking spree for these pages, accumulating a lot of embarrassing (and dumb), likes in the process. This app merely allows you to see all of your Facebook Pages liked (oldest) first and allowing you to scroll through and unlike those that you do not wish to show up on your profile anymore. Don't worry, we don't store any personal data from your Facebook account, we just need to you to connect using it so we can find your pages that you need to unlike. Enjoy and share this with your friends!</p>
+        </div>
+      </div>
+      {{/unless}}
+
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        {{outlet}}
+    </div>
+  </div>
+
 </div>

@@ -3,7 +3,7 @@ import UserLikesComponent from 'page-unliker/components/user-likes';
 import likesView from 'page-unliker/views/likes';
 
 export default Ember.ArrayController.extend({
-  sliceValue: 15,
+  sliceValue: 25,
   pages: function() {
     console.log("Show content!");
     console.log(this.get('content'));
@@ -26,7 +26,7 @@ export default Ember.ArrayController.extend({
 
       // Get the new ranges for the slice function and update sliceValue.
       var oldValue = this.get('sliceValue');
-      var newValue = oldValue + 10;
+      var newValue = oldValue + 25;
       this.set('sliceValue', newValue);
 
       // Reverse fetch the array and it's contents.
@@ -43,6 +43,17 @@ export default Ember.ArrayController.extend({
       });
 
       var myView = Ember.View.views['container-view'];
+      console.log("Container View");
+      console.log(myView);
+      console.log(myView.toArray());
+
+      var views = myView.toArray();
+      var firstView = views[0];
+      if(views.length >= 2) {
+        console.log("Removing view!");
+        //myView.removeObject(firstView);
+        firstView.destroy();
+      }
       myView.pushObject(areaComponent);
 
       console.log(this.get('sliceValue'));

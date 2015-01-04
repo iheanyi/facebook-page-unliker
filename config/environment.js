@@ -23,7 +23,8 @@ module.exports = function(environment) {
     providers: {
       'facebook-connect': {
         appId: '434327266716112',
-        scope: 'user_likes,email'
+        scope: 'user_likes,email',
+        xfbml: false
       }
     }
   }

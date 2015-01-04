@@ -1,16 +1,9 @@
-<a {{ action 'invalidateSession' }}>Logout</a>
+<h4>You have liked <span class="bolded">{{content.length}} pages.</span></h4>
 
-<h1>Likes!</h1>
-
-Total Number of Liked Pages: {{content.length}}
-
-
-<div>
-{{!--   {{user-likes pages=pages}}
+{{!-- Total Number of Liked Pages: {{content.length}}
  --}}
- </div>
 
-<h2>TEsting Container</h2>
+
 {{view 'container' id="likes-section" elementId="container-view"}}
 
 {{outlet}}

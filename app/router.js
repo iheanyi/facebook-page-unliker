@@ -8,9 +8,14 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
 
-  this.resource('likes', {path: 'likes'}, function() {
-    this.resource('like', { path: 'likes/:like_id' }, function() { });
+
+  this.route('index', {path: '/' }, function() {
+    this.resource('likes');
   });
+
+  /*this.resource('likes', function() {
+    this.resource('like', { path: 'likes/:like_id' }, function() { });
+  });*/
 });
 
 export default Router;

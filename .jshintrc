@@ -3,7 +3,8 @@
     "document",
     "window",
     "-Promise",
-    "FB"
+    "FB",
+    "ga"
   ],
   "browser": true,
   "boss": true,

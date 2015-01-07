@@ -25,6 +25,20 @@
 .btn-custom {
   vertical-align: middle;
   margin-top: 20px;
-  float: right; }
+  float: right;
+  }
+
+.social-area {
+  margin-bottom: 8px;
+}
+
+.privacy-policy {
+  padding-top: 8px;
+}
+
+/*.social-button {
+  height: 100px;
+  width: 100px;
+}*/
 
 /*# sourceMappingURL=app.css.map */

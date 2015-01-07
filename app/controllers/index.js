@@ -26,11 +26,12 @@ export default Ember.Controller.extend(LoginControllerMixin, {
       FB.getLoginStatus(function(response) {
         console.log(response);
 
-        if(response && response.status == "connected") {
+        if(response && response.status === "connected") {
           var data = {
             authenticator: 'simeple-auth-authenticator:torii',
             provider: 'facebook-connect',
-          }
+          };
+
           route.get('session').restore(response.data).then(function() {
             console.log("Restored authentication?");
             console.log(route.get('session'));

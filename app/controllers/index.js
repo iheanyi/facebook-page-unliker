@@ -16,7 +16,7 @@ export default Ember.Controller.extend(LoginControllerMixin, {
         console.log(session);
         console.log(session.get('accessToken'));
         console.log(session.get('userId'));
-        controller.transitionTo('likes');
+        controller.transitionToRoute('likes');
       });
     },
 

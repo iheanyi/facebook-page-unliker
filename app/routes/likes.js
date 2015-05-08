@@ -4,6 +4,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   beforeModel: function(transition) {
+    console.log(this.get('session'));
     if(!this.get('session').get('isAuthenticated') || !this.get('session').get('accessToken')) {
       this.transitionTo('index');
     } else {

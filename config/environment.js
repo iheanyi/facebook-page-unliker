@@ -29,6 +29,13 @@ module.exports = function(environment) {
     }
   }
 
+  ENV.contentSecurityPolicy = {
+    'frame-src': "*.facebook.com *.twitter.com",
+    'script-src': "'self' 'unsafe-eval' *.twitter.com *.new-relic.com facebook.com *.facebook.com *.nr-data.net *.google.com *.google-analytics.com *.facebook.net *.newrelic.com 'unsafe-inline'",
+    'connect-src': "'self' *.nr-data.net",
+    'style-src': "'self' 'unsafe-inline'"
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;

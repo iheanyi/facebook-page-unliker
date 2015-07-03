@@ -22,6 +22,7 @@ export default Ember.Route.extend({
         route.transitionTo('likes');
       });*/
       session.restore(session).then(function() {
+        console.log("Session successfully restored?");
         console.log(session);
       });
     }

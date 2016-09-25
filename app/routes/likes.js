@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import PagedArray from 'ember-cli-pagination/local/paged-array';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 function transformResponse(data) {
   return data.map((item) => {
@@ -17,7 +17,7 @@ function transformResponse(data) {
   });
 }
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service(),
   baseAPIUrl: Ember.computed('session', function() {
     const accessToken = this.get('session.session.authenticated.accessToken');
@@ -39,6 +39,12 @@ export default Ember.Route.extend({
       } else {
         let likes = this.store.peekAll('like');
         return likes;
+      }
+    }).catch((reason) => {
+      console.log(reason);
+      if(reason.status === 400) {
+        this.get('session').invalidate();
+        this.transitionToRoute('home');
       }
     });
   },

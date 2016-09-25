@@ -1,0 +1,9 @@
+<div class="w-50">
+  {{#each pagedContent as |page|}}
+      <p>{{page.name}}</p>
+      <p>{{page.createdTime}}</p>
+      <div class="fr">
+        <iframe src={{page.buttonLink}} scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 47px; height:20px;" allowTransparency="true"></iframe>
+      </div>
+  {{/each}}
+</div>

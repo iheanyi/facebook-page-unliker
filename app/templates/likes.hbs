@@ -3,11 +3,8 @@
 
   <p>Here are a list of your liked pages.</p>
 
-  {{#each pagedContent as |page|}}
-    <p>{{page.name}}</p>
-    <p>{{page.createdTime}}</p>
-  {{/each}}
-
+  {{page-likes pagedContent=pagedContent}}
+  
   <button onclick={{action "loadNext"}}>Load More</button>
 
 </div>

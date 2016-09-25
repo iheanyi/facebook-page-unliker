@@ -1,8 +1,13 @@
-<h1 class="mt4">Liked Pages</h1>
+<div class="pa4">
+  <h1 class="mt4">Liked Pages</h1>
 
-<p>Here are a list of your liked pages.</p>
-{{#each model as |page|}}
-  <p>{{page.name}}</p>
-  <p>{{page.createdTime}}</p>
-{{/each}}
-{{outlet}}
+  <p>Here are a list of your liked pages.</p>
+
+  {{#each pagedContent as |page|}}
+    <p>{{page.name}}</p>
+    <p>{{page.createdTime}}</p>
+  {{/each}}
+
+  <button onclick={{action "loadNext"}}>Load More</button>
+
+</div>

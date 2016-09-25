@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import PagedArray from 'ember-cli-pagination/local/paged-array';
 
 function transformResponse(data) {
   return data.map((item) => {
@@ -7,7 +8,10 @@ function transformResponse(data) {
       id: item.id,
       attributes: {
         name: item.name,
-        'created-time': item.created_time
+        'created-time': item.created_time,
+        link: item.link,
+        about: item.about,
+        'fan-count': item.fan_count
       }
     };
   });
@@ -17,7 +21,7 @@ export default Ember.Route.extend({
   session: Ember.inject.service(),
   baseAPIUrl: Ember.computed('session', function() {
     const accessToken = this.get('session.session.authenticated.accessToken');
-    return `https://graph.facebook.com/me/likes?access_token=${accessToken}&limit=100`;
+    return `https://graph.facebook.com/v2.7/me/likes?access_token=${accessToken}&limit=100&fields=link,name,about,created_time,fan_count`;
   }),
   getLikesFromUrl(url) {
     return Ember.$.ajax(url).then((response) => {
@@ -33,7 +37,8 @@ export default Ember.Route.extend({
 
         return this.getLikesFromUrl(nextUrl);
       } else {
-        return this.store.peekAll('like');
+        let likes = this.store.peekAll('like');
+        return likes;
       }
     });
   },

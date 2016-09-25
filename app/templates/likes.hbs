@@ -1,5 +1,8 @@
-<div>
-  This is the Likes Route
-</div>
+<h1 class="mt4">Liked Pages</h1>
 
+<p>Here are a list of your liked pages.</p>
+{{#each model as |page|}}
+  <p>{{page.name}}</p>
+  <p>{{page.createdTime}}</p>
+{{/each}}
 {{outlet}}

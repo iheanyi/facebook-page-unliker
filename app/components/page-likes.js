@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   didInsertElement() {
     this._super();
-    console.log(this.$());
+  },
+  actions: {
+    logMessage() {
+      console.log("This was something clicked.");
+    }
   }
 });

@@ -1,0 +1,15 @@
+<h1>Facebook Page Unliker</h1>
+
+{{#if session.isAuthenticated}}
+  <button onclick={{action "logout"}}>Logout</button>
+{{else}}
+  {{#if session.isWorking}}
+    Getting you logged in . . . 
+  {{else}}
+    {{error}}
+    <button onclick={{action "authenticate"}}>Authenticate</button>
+  {{/if}}
+{{/if}}
+
+{{outlet}}
+

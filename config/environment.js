@@ -19,12 +19,26 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-simple-auth'] = {
+    routeIfAlreadyAuthenticated: 'likes',
+    routeAfterAuthentication: 'likes'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['torii'] = {
+      providers: {
+        'facebook-connect': {
+          appId: '456648777817294',
+          scope: 'user_likes',
+          xfbml: false
+        }
+      }
+    }
   }
 
   if (environment === 'test') {
@@ -39,7 +53,15 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['torii'] = {
+      providers: {
+        'facebook-connect': {
+          appId: '434327266716112',
+          scope: 'user_likes',
+          xfbml: false
+        }
+      }
+    }
   }
 
   return ENV;

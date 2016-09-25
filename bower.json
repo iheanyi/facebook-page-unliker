@@ -1,20 +1,7 @@
 {
-  "name": "page-unliker",
+  "name": "facebook-page-unliker",
   "dependencies": {
-    "ember": "1.12.0",
-    "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
-    "ember-cli-test-loader": "ember-cli-test-loader#0.1.3",
-    "ember-data": "1.0.0-beta.18",
-    "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
-    "ember-qunit": "0.3.3",
-    "ember-qunit-notifications": "0.0.7",
-    "ember-resolver": "~0.1.15",
-    "jquery": "^1.11.1",
-    "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1",
-    "ember-simple-auth": "0.8.0",
-    "bootstrap": "~3.3.5",
-    "bootstrap-social": "~4.9.1",
-    "font-awesome": "~4.3.0"
+    "ember": "~2.8.0",
+    "ember-cli-shims": "0.1.1"
   }
 }

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 function transformResponse(data) {
-  return Ember.$.map(data, (item) => {
+  return data.map((item) => {
     return {
       type: "likes",
       id: item.id,

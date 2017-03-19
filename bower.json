@@ -1,7 +1,6 @@
 {
   "name": "page-unliker",
   "dependencies": {
-    "ember-simple-auth": "0.8.0"
   },
   "devDependencies": {
     "bootstrap-social": "^5.1.1"

@@ -1,8 +1,5 @@
 {
-  "name": "page-unliker",
+  "name": "facebook-page-unliker",
   "dependencies": {
-  },
-  "devDependencies": {
-    "bootstrap-social": "^5.1.1"
   }
 }

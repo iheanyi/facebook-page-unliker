@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'page-unliker',
+    modulePrefix: 'facebook-page-unliker',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
@@ -22,16 +22,6 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-
-  ENV['torii'] = {
-    providers: {
-      'facebook-connect': {
-        appId: '456648777817294',
-        scope: 'user_likes,email',
-        xfbml: false
-      }
-    }
-  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -53,15 +43,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV['torii'] = {
-      providers: {
-        'facebook-connect': {
-          appId: '434327266716112',
-          scope: 'user_likes,email',
-          xfbml: false
-        }
-      }
-    }
+
   }
 
   return ENV;

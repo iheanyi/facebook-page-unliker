@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
   }),
   actions: {
     setCurrentPage(index) {
-      console.log("Set current page called");
       this.set('currentLikesIndex', index);
     }
   }

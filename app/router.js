@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('likes', function() {
+    this.route('loading');
+  });
 });
 
 export default Router;

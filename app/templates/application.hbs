@@ -1,5 +1,12 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="w-90 center">
+  <div class="flex justify-between items-center">
+    <h1>Facebook Page Unliker</h1>
+    {{#if session.isAuthenticated}}
+    <button {{action "logout"}} type="button">Logout</button>
+    {{else}}
+    <button {{action "login"}} type="button">Login User</button>
+    {{/if}}
+  </div>
+</div>
 
 {{outlet}}

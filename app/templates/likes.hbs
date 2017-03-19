@@ -1,0 +1,28 @@
+<div class="w-90 center">
+  <h1>Your Likes</h1>
+  <p>You've liked {{allLikes.length}} pages</p>
+
+  {{#each currentLikesArr as |page| }}
+    <div class="flex items-center justify-between">
+      <div>
+        <h4>{{page.name}}</h4>
+        <h5>Liked on {{page.created_time}}</h5>
+        <span>{{page.fan_count}} people like this page.</span>
+      </div>
+
+      <div>
+        {{page.link}}
+      </div>
+    </div>
+  {{/each}}
+
+  <div class="mv3 flex items-center justify-center">
+    {{#each likesArr as |page index|}}
+      <button type="button"{{action "setCurrentPage" index}} class="pointer bn mr2 inline-flex br2 w-auto b bg-dark-blue white near-black pa2">
+        {{index}}
+      </button>
+    {{/each}}
+  </div>
+
+  {{outlet}}
+</div>

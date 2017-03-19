@@ -6,6 +6,15 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL
 });
 
+Router.reopen({		
+  notifyGoogleAnalytics: function() {		
+     return ga('send', 'pageview', {		
+         'page': this.get('url'),		
+         'title': this.get('url')		
+       });		
+  }.on('didTransition')		
+});
+
 Router.map(function() {
   this.route('likes', function() {
     this.route('loading');

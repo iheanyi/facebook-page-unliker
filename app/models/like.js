@@ -4,6 +4,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   link: DS.attr('string'),
   talking_about_count: DS.attr('number'),
+  fan_count: DS.attr('number'),
   created_time: DS.attr('date'),
   buttonURL: function() {
     console.log("Creating iFrame url.");

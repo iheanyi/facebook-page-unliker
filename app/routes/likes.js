@@ -14,14 +14,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
       let allLikes = this.get('allLikes');
       let likesArr = this.get('likesArr');
-      // We're going to push these objects into the array. ;)
-      likesArr.pushObject(likes);
-      allLikes.pushObjects(likes);
-
+      if (likes.length > 0) {
+        // We're going to push these objects into the array. ;)
+        likesArr.pushObject(likes);
+        allLikes.pushObjects(likes);
+      }
+     
       // And then we're going to check the pagination, if it has pagination,
       // let's recurse and then fetch even more of the likes.
-      if (response.paging && response.paging.next) {
-        var nextUrl = `${response.paging.next}`;
+      if (!!response.paging && !!response.paging.next) {
+        var nextUrl = response.paging.next;
         return this.fetchLikes(nextUrl);
       } else {
         return allLikes;

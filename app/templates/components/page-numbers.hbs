@@ -1,0 +1,40 @@
+<div class="pagination-centered">
+  <ul class="pagination list pl0 flex items-center justify-center flex-row">
+    {{#if canStepBackward}}
+      <li class="dib arrow prev enabled-arrow bg-dark-blue white mr2">
+        <a class="white link db pa2 ph3" href="#" {{action "incrementPage" -1}}>&laquo;</a>
+      </li>
+    {{else}}
+      <li class="arrow prev disabled dn">
+        <a class="white link db pa2 ph3" href="#" {{action "incrementPage" -1}}>&laquo;</a>
+      </li>
+    {{/if}}
+
+    {{#each pageItems as |item|}}
+      {{#if item.dots}}
+        <li class="dib dots disabled pa2 ph3 dark-blue mr2">
+          <span>...</span>
+        </li>
+      {{/if}}
+      {{#if item.current}}
+        <li class="active page-number ba b--dark-blue dark-blue mr2">
+          <a class="dark-blue link db pa2 ph3">{{item.page}}</a>
+        </li>
+      {{else}}
+        <li class="page-number bg-dark-blue white mr2">
+          <a class="white link db pa2 ph3" href="#" {{action "pageClicked" item.page}}>{{item.page}}</a>
+        </li>
+      {{/if}}
+    {{/each}}
+
+    {{#if canStepForward}}
+      <li class="arrow next enabled-arrow bg-dark-blue white">
+        <a class="white link db pa2 ph3" href="#" {{action "incrementPage" 1}}>&raquo;</a>
+      </li>
+    {{else}}
+      <li class="arrow next disabled dn">
+        <a href="#" {{action "incrementPage" 1}}>&raquo;</a>
+      </li>
+    {{/if}}
+  </ul>
+</div>

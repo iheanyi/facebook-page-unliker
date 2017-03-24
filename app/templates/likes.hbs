@@ -1,17 +1,8 @@
 <div class="w-90 center">
   <h1>Your Likes</h1>
-  <p>You've liked {{allLikes.length}} pages</p>
+  <p>You've liked {{model.length}} pages</p>
 
-  {{user-likes likes=currentLikesArr}}
-
-  <div class="mv3 db center cf tc items-center justify-center">
-    {{#each likesArr as |page index|}}
-      <button type="button" {{action "setCurrentPage" index}} class="pointer bn
-        mb2 mr2 flex fl br2 w-auto b bg-dark-blue white near-black pa2">
-        {{index}}
-      </button>
-    {{/each}}
-  </div>
-
+  {{user-likes likes=pagedContent}}
+  {{page-numbers content=pagedContent showFL=true}}
   {{outlet}}
 </div>

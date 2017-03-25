@@ -1,7 +1,7 @@
 {{#each likes as |page| }}
-    <div class="flex items-center justify-between">
+    <div class="like-cell pv3 ph3 flex items-center justify-between">
       <div>
-        <h4><a class="blue underline-hover"
+        <h4 class="mt0"><a class="blue underline-hover"
                target="_blank"
                href="{{page.link}}">{{page.name}}</a></h4>
         <h5>Liked on {{moment-format page.created_time 'LL'}}</h5>

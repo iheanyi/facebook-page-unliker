@@ -25,6 +25,7 @@ module.exports = function(environment) {
     torii: {
       providers: {
         'facebook-connect': {
+          version: 'v2.8',
           appId: '456648777817294',
           scope: 'user_likes,email'
         } 

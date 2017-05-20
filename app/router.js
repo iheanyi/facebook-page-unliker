@@ -19,6 +19,8 @@ Router.map(function() {
   this.route('likes', function() {
     this.route('loading');
   });
+  this.route('privacy');
+  this.route('tos');
 });
 
 export default Router;

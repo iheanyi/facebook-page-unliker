@@ -1,10 +1,8 @@
-<h4>You have liked <span class="bolded">{{content.length}} pages.</span></h4>
+<div class="w-90 center">
+  <h1>Your Likes</h1>
+  <p>You've liked {{model.length}} pages</p>
 
-{{!-- Total Number of Liked Pages: {{content.length}}
- --}}
-
-
-{{view 'container' id="likes-section" elementId="container-view"}}
-
-
-{{outlet}}
+  {{user-likes likes=pagedContent}}
+  {{page-numbers content=pagedContent showFL=true}}
+  {{outlet}}
+</div>

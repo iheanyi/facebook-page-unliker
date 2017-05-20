@@ -1,15 +1,19 @@
-/* jshint node: true */
+/* eslint-env node */
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'page-unliker',
+    modulePrefix: 'facebook-page-unliker',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
       }
     },
 
@@ -17,36 +21,28 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-  };
 
-  ENV['torii'] = {
-    providers: {
-      'facebook-connect': {
-        appId: '434327266716112',
-        scope: 'user_likes,email',
-        xfbml: false
-      }
+    torii: {
+      providers: {
+        'facebook-connect': {
+          version: 'v2.8',
+          appId: '456648777817294',
+          scope: 'user_likes,email'
+        } 
+      } 
     }
-  }
-
-  ENV.contentSecurityPolicy = {
-    'frame-src': "*.facebook.com *.twitter.com",
-    'script-src': "'self' 'unsafe-eval' *.twitter.com *.new-relic.com facebook.com *.facebook.com *.nr-data.net *.google.com *.google-analytics.com *.facebook.net *.newrelic.com 'unsafe-inline'",
-    'connect-src': "'self' *.nr-data.net",
-    'style-src': "'self' 'unsafe-inline'"
-  }
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -57,7 +53,14 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['torii'] = {
+      providers: {
+        'facebook-connect': {
+          appId: '434327266716112',
+          scope: 'user_likes,email',
+        }
+      }
+    }
   }
 
   return ENV;

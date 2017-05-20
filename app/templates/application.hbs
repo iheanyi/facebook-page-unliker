@@ -1,1 +1,38 @@
+<div class="w-90 center">
+  <div class="flex justify-between items-center">
+    <h1>Facebook Page Unliker</h1>
+    {{#if session.isAuthenticated}}
+    <button class="link v-mid dim white pa2 ph3 bn bg-dark-blue" {{action "logout"}} type="button">
+      <svg class="mr2 v-mid white inline-flex justify-center items-center w1 h1"
+           viewBox="0 0 16 16" fill="#fff" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg>
+      <span class="v-mid">Logout</span>
+    </button>
+    {{else}}
+    <button class="link v-mid dim white pa2 ph3 bn bg-dark-blue" {{action "login"}} type="button">
+      <svg class="mr2 v-mid white inline-flex justify-center items-center w1 h1"
+           viewBox="0 0 16 16" fill="#fff" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg>
+      <span class="v-mid">Login with Facebook</span>
+    </button>
+    {{/if}}
+  </div>
+</div>
+
+<div class="w-90 center">
+  <a href="https://twitter.com/share" class="mr2 twitter-share-button" data-url="http://pageunliker.com" data-text="Check out Page Unliker, an easy way for unliking old Facebook Pages by @kwuchu!">Tweet</a>
+
+  <iframe class="social-button" src="//www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fpageunliker.com&amp;layout=button_count&amp;appId=434327266716112" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100px; height: 20px;" allowTransparency="true"></iframe>
+</div>
+
+<div class="w-90 center">
+  <a href="https://github.com/iheanyi/facebook-page-unliker" class="dib mv2 mr2 link b blue">View the Source Code</a>
+
+  {{link-to 'Privacy Policy' 'privacy' class="dib mv2 mr2 link b blue privacy-policy" }}
+
+  {{link-to 'Terms of Service' 'tos' class="dib mv2 link b blue" }}
+
+  <div class="mv2">
+  <a href="https://cash.me/$iheanyi" class="link pa3 bg-dark-green dim dib link b white">Like the app?
+    Feel free to donate!</a>
+  </div>
+</div>
 {{outlet}}

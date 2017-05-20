@@ -1,6 +1,9 @@
-<div class="container">
+<div class="w-90 center">
 
-{{link-to 'Return to Homepage' 'index'}}
+  {{link-to 'Return to Homepage' 'index' class="link"}}
+  {{#if session.isAuthenticated}}
+    {{link-to 'Likes' 'likes' class="link"}}
+  {{/if}}
 
 <h1>Privacy Policy</h1>
 
@@ -62,4 +65,3 @@
 
 <p>If you have any questions about this Privacy Policy, please contact us.</p>
 </div>
-{{outlet}}

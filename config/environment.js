@@ -35,7 +35,6 @@ module.exports = function(environment) {
 
   ENV['segment'] = {
     WRITE_KEY: 'CuAMeBX6nQv14wq8fyYTqrCjmInkmy7C',
-    LOG_EVENT_TRACKING: true
   };
 
   if (environment === 'development') {
@@ -44,6 +43,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['segment']['LOG_EVENT_TRACKING'] = true;
   }
 
   if (environment === 'test') {

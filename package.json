@@ -36,6 +36,7 @@
     "ember-cli-pagination": "^3.0.1",
     "ember-cli-qunit": "^3.1.0",
     "ember-cli-sass": "^6.1.2",
+    "ember-cli-segment": "^2.1.0",
     "ember-cli-shims": "^1.0.2",
     "ember-cli-uglify": "^1.2.0",
     "ember-composable-helpers": "^2.0.0",

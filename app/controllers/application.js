@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	segment: Ember.inject.service(),
   session: Ember.inject.service('session'),
   actions: {
     login() {
@@ -12,6 +13,13 @@ export default Ember.Controller.extend({
     },
     logout() {
       this.get('session').invalidate(); 
+    },
+    trackDonateClick() {
+      // Will be responsible for tracking payment via Square Cash or Paypal
+      // (once changed)
+      this.get('segment').trackEvent('Clicks donate button', {
+        site: 'Square Cash'
+      });
     }
   }
 });

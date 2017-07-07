@@ -33,6 +33,11 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['segment'] = {
+    WRITE_KEY: 'CuAMeBX6nQv14wq8fyYTqrCjmInkmy7C',
+    LOG_EVENT_TRACKING: true
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

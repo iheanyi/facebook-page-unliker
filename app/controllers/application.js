@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   actions: {
     login() {
       this.get('session').authenticate('authenticator:torii', 'facebook-connect').then(() => {
+        this.get('segment').trackEvent('Clicks login');
        // We've successfully authenticated, so we want to take the user to their
         // likes.
         this.transitionToRoute('likes');

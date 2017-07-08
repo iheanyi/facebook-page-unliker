@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
       });
     },
     logout() {
+      this.get('segment').trackEvent('Clicks logout');
       this.get('session').invalidate(); 
     },
     trackDonateClick() {

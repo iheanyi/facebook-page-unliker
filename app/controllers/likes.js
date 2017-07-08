@@ -2,12 +2,14 @@ import Ember from 'ember';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Controller.extend({
+  segment: Ember.inject.service(),
   likesArr: [],
   allLikes: [],
   currentLikesIndex: 0,
   page: 1,
   perPage: 25,
   scrollTop: Ember.observer("page", function() {
+    this.get('segment').trackEvent('Changes page');
     Ember.$(window).scrollTop(0);
   }),
   reversedLikes: Ember.computed('model', function() {

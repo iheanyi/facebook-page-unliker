@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
       // Will be responsible for tracking payment via Square Cash or Paypal
       // (once changed)
       this.get('segment').trackEvent('Clicks donate button', {
-        site: 'Square Cash'
+        site: 'Paypal'
       });
     }
   }

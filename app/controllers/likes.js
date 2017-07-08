@@ -9,7 +9,9 @@ export default Ember.Controller.extend({
   page: 1,
   perPage: 25,
   scrollTop: Ember.observer("page", function() {
-    this.get('segment').trackEvent('Changes page');
+    this.get('segment').trackEvent('Changes page', {
+      page: this.get('page')
+    });
     Ember.$(window).scrollTop(0);
   }),
   reversedLikes: Ember.computed('model', function() {
